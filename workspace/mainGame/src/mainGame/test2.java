@@ -8,7 +8,7 @@ public class test2 {
 		String fine = "wows"; 
 		System.out.println(fine + i + j);
 		System.out.println("goooooooood");
-		System.out.println("last test");
+		System.out.println("aaaaa i'll be gone today but ill be last test");
 	}
 
 }
