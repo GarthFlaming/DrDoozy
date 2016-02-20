@@ -1,14 +1,17 @@
 package mainGame;
 
+import org.lwjgl.LWJGLException;
+import org.lwjgl.opengl.Display;
+
 public class test2 {
 
 	public static void main(String[] args) {
-		int i = 1;
-		int j = 2;
-		String fine = "wows"; 
-		System.out.println(fine + i + j);
-		System.out.println("FYB FYB FYBBBBB");
-		System.out.println("last test");
+		try {
+			Display.create();
+		} catch (LWJGLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
