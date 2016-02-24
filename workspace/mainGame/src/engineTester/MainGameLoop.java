@@ -23,6 +23,7 @@ import textures.TerrainTexturePack;
 import entities.Camera;
 import entities.Entity;
 import entities.Light;
+import entities.Player;
  
 public class MainGameLoop {
  
@@ -84,16 +85,22 @@ public class MainGameLoop {
         
         Light light = new Light(new Vector3f(20000, 40000, 20000), new Vector3f(1,1,1));
         
-        Terrain terrain = new Terrain(0, -1, loader, texturePack, blendMap);
-        Terrain terrain2 = new Terrain(-1,-1,loader, texturePack, blendMap);
+        Terrain terrain = new Terrain(0, -1, loader, texturePack, blendMap, "heightmap");
+        Terrain terrain2 = new Terrain(-1,-1,loader, texturePack, blendMap, "heightmap");
         
-        Camera camera = new Camera();
         
         MasterRenderer renderer = new MasterRenderer();
         
+        RawModel bunnyModel = OBJLoader.loadObjModel("bunny", loader);
+        TexturedModel bunny = new TexturedModel(bunnyModel, new ModelTexture(loader.loadTexture("white")));
+        
+        Player player = new Player(bunny, new Vector3f(100,0,-50),0,0,0,1);
+        Camera camera = new Camera(player);
+        
         while(!Display.isCloseRequested()){
             camera.move();
-            
+            player.move(terrain);
+            renderer.processEntity(player);
            
             renderer.processTerrain(terrain);
             renderer.processTerrain(terrain2);
