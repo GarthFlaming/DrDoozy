@@ -2,7 +2,7 @@ package mainGame;
 
 public class Thisisavlass {
 	public static void main(String[] args){
-	
+	/*
 		void draw() {
 			  background(0, 0, 0);
 
@@ -10,5 +10,6 @@ public class Thisisavlass {
 			    ellipse(50, 50, 25, 25);
 			  }
 			}
+			*/
 	}
 }
