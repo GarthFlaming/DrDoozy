@@ -118,7 +118,7 @@ public class MainGameLoop {
         entities.add(new Entity(lamp, new Vector3f(370, 4.2f, -300), 0, 0, 0, 1));
         entities.add(new Entity(lamp, new Vector3f(293, -6.8f, -305), 0, 0 , 0, 1));
         
-        MasterRenderer renderer = new MasterRenderer();
+        MasterRenderer renderer = new MasterRenderer(loader);
         
         RawModel personModel = OBJLoader.loadObjModel("person", loader);
         TexturedModel person = new TexturedModel(personModel, new ModelTexture(loader.loadTexture("white")));
