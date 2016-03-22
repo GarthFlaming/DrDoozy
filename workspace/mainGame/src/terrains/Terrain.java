@@ -32,7 +32,7 @@ public class Terrain {
 	private float[][] heights;
 	
 	public Terrain(int gridX, int gridZ, Loader loader, TerrainTexturePack texturePack, TerrainTexture blendMap, String heightMap){
-		this.texturePack = texturePack;
+		this.texturePack = texturePack; 
 		this.blendMap = blendMap;
 		this.x = gridX * SIZE;
 		this.z = gridZ * SIZE;
@@ -127,7 +127,7 @@ public class Terrain {
 				vertices[vertexPointer*3] = (float)j/((float)VERTEX_COUNT - 1) * SIZE;
 				float height = getHeight(j,i,image);
 				heights[j][i] = height;
-				vertices[vertexPointer*3+1] = height;
+				vertices[vertexPointer*3+1] = height; 
 				vertices[vertexPointer*3+2] = (float)i/((float)VERTEX_COUNT - 1) * SIZE;
 				Vector3f normal = calculateNormal(j,i,image);
 				normals[vertexPointer*3] = normal.x;
@@ -166,11 +166,11 @@ public class Terrain {
 		return normal;
 	}
 	
-	private float getHeight(int x, int z, BufferedImage image){
-		if(x < 0 || x >= image.getHeight() || z < 0 || z >= image.getHeight()){
+	private float getHeight(int x, int y, BufferedImage image){
+		if(x < 0 || x >= image.getHeight() || y < 0 || y >= image.getHeight()){
 			return 0;
 		}
-		float height = image.getRGB(x, z);
+		float height = image.getRGB(x, y);
 		height += MAX_PIXEL_COLOUR/2f;
 		height /= MAX_PIXEL_COLOUR/2f;
 		height *= MAX_HEIGHT;

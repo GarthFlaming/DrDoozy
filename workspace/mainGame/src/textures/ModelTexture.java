@@ -16,6 +16,8 @@ public class ModelTexture {
         this.textureID = texture;
     }
      
+    
+    
     public int getNumberOfRows() {
 		return numberOfRows;
 	}
