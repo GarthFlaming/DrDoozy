@@ -1,10 +1,7 @@
-/mainGame/
-/renderEngine/
+/guis/
 /engineTester/
-/shaders/
-/textures/
-/models/
+/renderEngine/
 /toolbox/
-/entities/
+/shaders/
 /terrains/
-/objConverter/
+/entities/
