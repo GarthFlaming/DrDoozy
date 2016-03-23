@@ -87,7 +87,7 @@ public class MainGameLoop {
         		float x = random.nextFloat() * 800 -400;
         		float z = random.nextFloat() * -600;
         		float y = terrain.getHeightOfTerrain(x, z);
-        		
+       
         		entities.add(new Entity(fern, random.nextInt(4), new Vector3f(x, y, z), 0, random.nextFloat() * 360,
         				0, 0.9f));
         		
