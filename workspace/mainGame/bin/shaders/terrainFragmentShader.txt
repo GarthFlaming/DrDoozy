@@ -16,7 +16,7 @@ uniform sampler2D blendMap;
 
 uniform sampler2D modelTexture;
 uniform vec3 lightColour[4];
-uniform vec3 attenuation[4];
+uniform vec3 attenuation[5];
 uniform float shineDamper;
 uniform float reflectivity;
 uniform vec3 skyColour;

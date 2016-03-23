@@ -96,21 +96,29 @@ public class MainGameLoop {
         	
         	
         	if(i % 7 == 0){
-        		entities.add(new Entity(grass, new Vector3f(random.nextFloat() * 400 - 200, 0,
-        				random.nextFloat() * -400), 0, 0, 0, 2.3f));
+        		float x = random.nextFloat() * 800 -400;
+        		float z = random.nextFloat() * -600;
+        		float y = terrain.getHeightOfTerrain(x, z);
+        		entities.add(new Entity(grass, new Vector3f(x, y, z), 0, 0, 0, 2.3f));
         	}
         	if(i % 3 == 0){
-        		entities.add(new Entity(fern, new Vector3f(random.nextFloat() * 400 - 200, 0,
-        				random.nextFloat() * -400), 0, random.nextFloat() * 360, 0, 0.9f));
-        		entities.add(new Entity(bobble, new Vector3f(random.nextFloat() * 800 - 400, 0,
-        				random.nextFloat() * -600), 0, random.nextFloat() * 360, 0, random.nextFloat() * 0.1f + 0.6f));
-        		entities.add(new Entity(staticModel, new Vector3f(random.nextFloat() * 800 - 400, 0,
-        				random.nextFloat() * -600), 0, 0, 0,random.nextFloat() * 1 + 4));
+        		float x = random.nextFloat() * 800 -400;
+        		float z = random.nextFloat() * -600;
+        		float y = terrain.getHeightOfTerrain(x, z);
+        		entities.add(new Entity(fern, new Vector3f(x, y, z), 0, random.nextFloat() * 360, 0, 0.9f));
+        		x = random.nextFloat() * 800 -400;
+        		z = random.nextFloat() * -600;
+        		y = terrain.getHeightOfTerrain(x, z);
+        		entities.add(new Entity(bobble, new Vector3f(x, y, z), 0, random.nextFloat() * 360, 0, random.nextFloat() * 0.1f + 0.6f));
+        		x = random.nextFloat() * 800 -400;
+        		z = random.nextFloat() * -600;
+        		y = terrain.getHeightOfTerrain(x, z);
+        		entities.add(new Entity(staticModel, new Vector3f(x, y, z), 0, 0, 0,random.nextFloat() * 1 + 4));
         	}
         }
         
         List<Light> lights = new ArrayList<Light>();
-        lights.add(new Light(new Vector3f(0, 1000, -7000), new Vector3f(0.4f, 0.4f, 0.4f)));
+        lights.add(new Light(new Vector3f(0, 1000, -7000), new Vector3f(0.5f, 0.5f, 0.5f))); //the sun
         lights.add(new Light(new Vector3f(185, 10, -293), new Vector3f(2, 0, 0), new Vector3f(1,0.01f, 0.002f)));
         lights.add(new Light(new Vector3f(370, 17, -300), new Vector3f(0, 2, 2), new Vector3f(1,0.01f, 0.002f)));
         lights.add(new Light(new Vector3f(293, 7, -305), new Vector3f(2, 2, 0), new Vector3f(1,0.01f, 0.002f)));
@@ -138,7 +146,7 @@ public class MainGameLoop {
         Entity lampEntity = (new Entity(lamp, new Vector3f(293, -6.8f, -305), 0, 0, 0, 1)); 
         entities.add(lampEntity);
         
-        Light light = (new Light(new Vector3f(293, 7, -305), new Vector3f(0, 2, 2), new Vector3f(1, 0.01f, 0.002f)));
+        Light light = (new Light(new Vector3f(290, 7, -305), new Vector3f(0, 2, 2), new Vector3f(1, 0.01f, 0.002f)));
         lights.add(light); 
         
         while(!Display.isCloseRequested()){
