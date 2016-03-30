@@ -48,9 +48,9 @@ public class MainGameLoop {
         
         //********
          
-       RawModel model = OBJLoader.loadObjModel("tree",loader);
+       RawModel model = OBJLoader.loadObjModel("pine",loader);
          
-        TexturedModel staticModel = new TexturedModel(model, new ModelTexture(loader.loadTexture("tree")));
+        TexturedModel staticModel = new TexturedModel(model, new ModelTexture(loader.loadTexture("pine")));
         
         TexturedModel grass = new TexturedModel(OBJLoader.loadObjModel("grassModel", loader),
         		new ModelTexture(loader.loadTexture("grassTexture")));
@@ -130,7 +130,7 @@ public class MainGameLoop {
         MasterRenderer renderer = new MasterRenderer(loader);
         
         RawModel personModel = OBJLoader.loadObjModel("person", loader);
-        TexturedModel person = new TexturedModel(personModel, new ModelTexture(loader.loadTexture("white")));
+        TexturedModel person = new TexturedModel(personModel, new ModelTexture(loader.loadTexture("playerTexture")));
         
         Player player = new Player(person, new Vector3f(100,0,-50),0,-200,0,1);
         Camera camera = new Camera(player);
