@@ -49,7 +49,40 @@ public class Player extends Entity{
 		isInAir = true;
 		}
 	}
+
+	private void aim(){
+		if(!isAim){
+			//stance change to aim camera pans to target if any
+		}
+	}
 	
+	private void heavypunch(){
+		for(int h = 10; h > 0; h--){
+			if(Keyboard.isKeyDown(Keyboard.KEY_C) && hhitcount <= hhitmax)){
+				hhitcount++;
+				//incert animation to hit
+			}
+		}
+	}
+	
+	private void lightpunch(){
+		for(int l = 10; l > 0; l--){
+			if(Keyboard.isKeyDown(Keyboard.KEY_X) && lhitcount <= lhitmax)){
+				lhitcount++;
+				//incert animation to hit
+			}
+	}
+	
+	private void guard(){
+		for(int g = 10; g > 0; g--){
+				//incert guard animation
+			}
+	}
+	
+	private void specialatk(){
+		//incert animation for specialatk
+	}
+
 	private void checkInputs(){
 		if(Keyboard.isKeyDown(Keyboard.KEY_W)){
 			this.currentSpeed = RUN_SPEED;
@@ -67,8 +100,45 @@ public class Player extends Entity{
 			this.currentTurnSpeed = 0;
 		}
 		
-		if(Keyboard.isKeyDown(Keyboard.KEY_SPACE)){
+		if(Keyboard.isKeyDown(Keyboard.KEY_V)){
 			jump();
+		}
+		if(Keyboard.isKeyDown(Keyboard.KEY_Z)){
+			aim();
+		}
+		if(Keyboard.isKeyDown(Keyboard.KEY_C)){
+			if(Keyboard.isKeyDown(Keyboard.KEY_X)){
+				if(Keyboard.isKeyDown(Keyboard.KEY_Z)){
+					specialatk();
+				}
+				else{
+				guard();
+				}
+			}
+			else{
+			heavypunch();
+			}
+		}
+		if(Keyboard.isKeyDown(Keyboard.KEY_X)){
+			if(Keyboard.isKeyDown(Keyboard.KEY_C)){
+				if(Keyboard.isKeyDown(Keyboard.KEY_Z)){
+					specialatk();
+				}
+				else{
+				guard();
+				}
+			}
+			else{
+			lightpunch();
+			}
+		}
+		if(Keyboard.isKeyDown(Keyboard.KEY_F)){
+			if(Keyboard.isKeyDown(Keyboard.KEY_Z){
+				specialatk();
+			}
+			else{
+				guard();
+			}
 		}
 	}
 
