@@ -48,7 +48,7 @@ public class MainGameLoop {
         
         //********
          
-       RawModel model = OBJLoader.loadObjModel("pine",loader);
+       RawModel model = OBJLoader.loadObjModel("pine2",loader);
          
         TexturedModel staticModel = new TexturedModel(model, new ModelTexture(loader.loadTexture("pine")));
         
@@ -61,6 +61,7 @@ public class MainGameLoop {
         TexturedModel lamp = new TexturedModel(OBJLoader.loadObjModel("lamp", loader),
         		new ModelTexture(loader.loadTexture("lamp")));
         
+        //RawModel characterMid = OBJLoader.loadObjModel("charaterMid",loader);
        
         ModelTexture fernTextureAtlas = new ModelTexture(loader.loadTexture("fern"));
         fernTextureAtlas.setNumberOfRows(2);
@@ -127,6 +128,7 @@ public class MainGameLoop {
         entities.add(new Entity(lamp, new Vector3f(370, 4.2f, -300), 0, 0, 0, 1));
         entities.add(new Entity(lamp, new Vector3f(293, -6.8f, -305), 0, 0 , 0, 1));
         
+       
         MasterRenderer renderer = new MasterRenderer(loader);
         
         RawModel personModel = OBJLoader.loadObjModel("person", loader);

@@ -1,0 +1,43 @@
+# Blender MTL File: 'None'
+# Material Count: 4
+
+newmtl Material_#34
+Ns 19.607843
+Ka 0.000000 0.000000 0.000000
+Kd 0.470400 0.470400 0.470400
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd  D:\\WORKING\\Thang 7_2015\\Medieval character\\Map\\Head.png
+
+newmtl Material_#36
+Ns 19.607843
+Ka 0.000000 0.000000 0.000000
+Kd 0.470400 0.470400 0.470400
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd  D:\\WORKING\\Thang 7_2015\\Medieval character\\Map\\Armor_01.png
+
+newmtl Material_#37
+Ns 19.607843
+Ka 0.000000 0.000000 0.000000
+Kd 0.470400 0.470400 0.470400
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd  D:\\WORKING\\Thang 7_2015\\Medieval character\\Map\\Kiem.png
+
+newmtl None
+Ns 0
+Ka 0.000000 0.000000 0.000000
+Kd 0.8 0.8 0.8
+Ks 0.8 0.8 0.8
+d 1
+illum 2
