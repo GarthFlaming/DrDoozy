@@ -1,14 +1,12 @@
-<<<<<<< HEAD
-/mainGame/
-/textures/
-/renderEngine/
-=======
-/guis/
 /engineTester/
-/renderEngine/
-/toolbox/
-/shaders/
-/terrains/
 /entities/
->>>>>>> 1e7ec1b32284ba9fd2e90a38a2899533d58c88d9
+/guis/
+/mainGame/
+/models/
+/objConverter/
+/renderEngine/
+/shaders/
 /skybox/
+/terrains/
+/textures/
+/toolbox/
