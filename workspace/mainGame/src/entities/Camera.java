@@ -83,7 +83,7 @@ public class Camera {
    // 	if(Mouse.isButtonDown(1)){
    //		float pitchChange = Mouse.getDY() * 0.1f;
    // 		pitch -= pitchChange;
-    	}
+//    	}
     }
 
     private void calculateAngleAroundPlayer(){

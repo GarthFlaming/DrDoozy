@@ -50,6 +50,8 @@ public class Player extends Entity{
 		}
 	}
 
+	/***************
+	 * 
 	private void aim(){
 		if(!isAim){
 			//stance change to aim camera pans to target if any
@@ -82,7 +84,9 @@ public class Player extends Entity{
 	private void specialatk(){
 		//incert animation for specialatk
 	}
-
+	
+ *******************/
+	
 	private void checkInputs(){
 		if(Keyboard.isKeyDown(Keyboard.KEY_W)){
 			this.currentSpeed = RUN_SPEED;
@@ -100,9 +104,10 @@ public class Player extends Entity{
 			this.currentTurnSpeed = 0;
 		}
 		
-		if(Keyboard.isKeyDown(Keyboard.KEY_V)){
+		if(Keyboard.isKeyDown(Keyboard.KEY_SPACE)){
 			jump();
 		}
+		/*
 		if(Keyboard.isKeyDown(Keyboard.KEY_Z)){
 			aim();
 		}
@@ -140,6 +145,6 @@ public class Player extends Entity{
 				guard();
 			}
 		}
+	*/	
 	}
-
 }

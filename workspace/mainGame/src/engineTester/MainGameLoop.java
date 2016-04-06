@@ -2,6 +2,7 @@ package engineTester;
  
 import models.RawModel;
 import models.TexturedModel;
+import normalMappingObjConverter.NormalMappedObjLoader;
 import objConverter.ModelData;
 import objConverter.OBJFileLoader;
 
@@ -12,7 +13,8 @@ import java.util.Random;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.util.vector.Vector2f;
 import org.lwjgl.util.vector.Vector3f;
- 
+import org.lwjgl.util.vector.Vector4f;
+
 import renderEngine.DisplayManager;
 import renderEngine.Loader;
 import renderEngine.MasterRenderer;
@@ -69,8 +71,8 @@ public class MainGameLoop {
         TexturedModel fern = new TexturedModel(OBJLoader.loadObjModel("fern", loader), fernTextureAtlas);
         
         
-        TexturedModel bobble = new TexturedModel(OBJLoader.loadObjModel("lowPolyTree", loader),
-        		new ModelTexture(loader.loadTexture("lowPolyTree")));
+//        TexturedModel bobble = new TexturedModel(OBJLoader.loadObjModel("lowPolyTree", loader),
+//        		new ModelTexture(loader.loadTexture("lowPolyTree")));
         
         grass.getTexture().setHasTransparency(true);
         grass.getTexture().setUseFakeLighting(true);
@@ -81,6 +83,15 @@ public class MainGameLoop {
         Terrain terrain = new Terrain(0, -1, loader, texturePack, blendMap, "heightmap");
         
         List<Entity> entities = new ArrayList<Entity>();
+        List<Entity> normalMapEntities = new ArrayList<Entity>(); 
+        
+        TexturedModel barrelModel = new TexturedModel(NormalMappedObjLoader.loadOBJ("barrel", loader),
+        		new ModelTexture(loader.loadTexture("barrel"))); 
+        barrelModel.getTexture().setShineDamper(10);
+        barrelModel.getTexture().setReflectivity(0.5f);
+        
+        normalMapEntities.add(new Entity(barrelModel, new Vector3f(75, 10, -75), 0, 0, 0, 1f));
+        
         Random random = new Random(676452);
         for(int i = 0;i < 400; i++){
         	
@@ -110,7 +121,7 @@ public class MainGameLoop {
         		x = random.nextFloat() * 800 -400;
         		z = random.nextFloat() * -600;
         		y = terrain.getHeightOfTerrain(x, z);
-        		entities.add(new Entity(bobble, new Vector3f(x, y, z), 0, random.nextFloat() * 360, 0, random.nextFloat() * 0.1f + 0.6f));
+        		//entities.add(new Entity(bobble, new Vector3f(x, y, z), 0, random.nextFloat() * 360, 0, random.nextFloat() * 0.1f + 0.6f));
         		x = random.nextFloat() * 800 -400;
         		z = random.nextFloat() * -600;
         		y = terrain.getHeightOfTerrain(x, z);
@@ -167,8 +178,10 @@ public class MainGameLoop {
             for(Entity entity : entities){
             	renderer.processEntity(entity);
             }
-            
-            renderer.render(lights, camera);
+            for(Entity entity : normalMapEntities){
+            	renderer.processNormalMapEntity(entity); 
+            }
+            renderer.render(lights, camera, new Vector4f(0, -1, 0, 100000));
             guiRenderer.render(guis);
             DisplayManager.updateDisplay();
         }
