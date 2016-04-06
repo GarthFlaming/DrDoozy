@@ -56,18 +56,18 @@ public class Player extends Entity{
 		}
 	}
 	
-	private void heavypunch(){
+	private void heavypunch(int hhitmax){
 		for(int h = 10; h > 0; h--){
-			if(Keyboard.isKeyDown(Keyboard.KEY_C) && hhitcount <= hhitmax)){
+			if(Keyboard.isKeyDown(Keyboard.KEY_X) && hhitcount <= hhitmax)){
 				hhitcount++;
 				//incert animation to hit
 			}
 		}
 	}
 	
-	private void lightpunch(){
+	private void lightpunch(int lhitmax){
 		for(int l = 10; l > 0; l--){
-			if(Keyboard.isKeyDown(Keyboard.KEY_X) && lhitcount <= lhitmax)){
+			if(Keyboard.isKeyDown(Keyboard.KEY_C) && lhitcount <= lhitmax)){
 				lhitcount++;
 				//incert animation to hit
 			}
@@ -88,7 +88,13 @@ public class Player extends Entity{
 			this.currentSpeed = RUN_SPEED;
 		}else if(Keyboard.isKeyDown(Keyboard.KEY_S)){
 			this.currentSpeed = -RUN_SPEED;
-		}else{
+		}else if(Keyboard.isKeyDown(Keyboard.KEY_A)){
+			this.currentSpeed = RUN_SPEED;
+		}
+		else if(Keyboard.isKeyDown(Keyboad.KEY_D)){
+			this.currentSpeed = RUN_SPEED;
+		}
+		else{
 			this.currentSpeed = 0;
 		}
 		
@@ -106,8 +112,8 @@ public class Player extends Entity{
 		if(Keyboard.isKeyDown(Keyboard.KEY_Z)){
 			aim();
 		}
-		if(Keyboard.isKeyDown(Keyboard.KEY_C)){
-			if(Keyboard.isKeyDown(Keyboard.KEY_X)){
+		if(Keyboard.isKeyDown(Keyboard.KEY_X)){
+			if(Keyboard.isKeyDown(Keyboard.KEY_C)){
 				if(Keyboard.isKeyDown(Keyboard.KEY_Z)){
 					specialatk();
 				}
@@ -119,8 +125,8 @@ public class Player extends Entity{
 			heavypunch();
 			}
 		}
-		if(Keyboard.isKeyDown(Keyboard.KEY_X)){
-			if(Keyboard.isKeyDown(Keyboard.KEY_C)){
+		if(Keyboard.isKeyDown(Keyboard.KEY_C)){
+			if(Keyboard.isKeyDown(Keyboard.KEY_X)){
 				if(Keyboard.isKeyDown(Keyboard.KEY_Z)){
 					specialatk();
 				}
