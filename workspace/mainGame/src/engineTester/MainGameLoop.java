@@ -48,7 +48,7 @@ public class MainGameLoop {
         
         //********
          
-       RawModel model = OBJLoader.loadObjModel("pine2",loader);
+       RawModel model = OBJLoader.loadObjModel("pineRe",loader);
          
         TexturedModel staticModel = new TexturedModel(model, new ModelTexture(loader.loadTexture("pine")));
         
