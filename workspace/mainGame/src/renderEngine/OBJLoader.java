@@ -22,6 +22,7 @@ public class OBJLoader {
 			System.err.println("Couldn't load file!");
 			e.printStackTrace();
 		}
+		//InputStreamReader isr = new InputStreamReader(Class.class.getResourcesAsStream("/res/" + fileName + ".obj"));
 		BufferedReader reader = new BufferedReader(fr);
 		String line;
 		List<Vector3f> vertices = new ArrayList<Vector3f>();

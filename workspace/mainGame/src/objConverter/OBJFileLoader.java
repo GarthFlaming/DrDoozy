@@ -26,6 +26,7 @@ public class OBJFileLoader {
 		} catch (FileNotFoundException e) {
 			System.err.println("File not found in res; don't use any extention");
 		}
+		//InputStreamReader isr = new InputStreamReader(Class.class.getResourcesAsStream("/res/" + fileName + ".obj"));
 		BufferedReader reader = new BufferedReader(isr);
 		String line;
 		List<Vertex> vertices = new ArrayList<Vertex>();
