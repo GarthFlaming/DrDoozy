@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 63725e7dbad74a0528469830b457578b25025d82
 /fontRendering/
 /normalMappingRenderer/
 /particles/
@@ -11,6 +14,7 @@
 /guis/
 /skybox/
 /objConverter/
+<<<<<<< HEAD
 =======
 /engineTester/
 /entities/
@@ -27,3 +31,6 @@
 /fontRendering/
 /particles/
 >>>>>>> parent of 77ccc88... tutorial 39 and down completed
+=======
+>>>>>>> 63725e7dbad74a0528469830b457578b25025d82
+/shadows/

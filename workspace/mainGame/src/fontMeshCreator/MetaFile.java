@@ -47,6 +47,7 @@ public class MetaFile {
 	 * @param file
 	 *            - the font file.
 	 */
+					//String
 	protected MetaFile(File file) {
 		this.aspectRatio = (double) Display.getWidth() / (double) Display.getHeight();
 		openFile(file);
@@ -134,8 +135,11 @@ public class MetaFile {
 	 * @param file
 	 *            - the font file.
 	 */
+						//String
 	private void openFile(File file) {
 		try {
+			//InputStreamReader isr = new InputStreamReader(Class.class.getResourceAsStream("/res/" + file + ".fnt"));
+										//isr
 			reader = new BufferedReader(new FileReader(file));
 		} catch (Exception e) {
 			e.printStackTrace();

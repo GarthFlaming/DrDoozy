@@ -24,6 +24,7 @@ public class FontType {
 	 *            - the font file containing information about each character in
 	 *            the texture atlas.
 	 */
+									//String
 	public FontType(int textureAtlas, File fontFile) {
 		this.textureAtlas = textureAtlas;
 		this.loader = new TextMeshCreator(fontFile);
