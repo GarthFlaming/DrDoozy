@@ -24,18 +24,9 @@ public class Particle {
 	
 	private float elapsedTime = 0;
 	private float distance;
-	
-	private Vector3f reusableChange = new Vector3f();
-	
-	public boolean alive = false;
 
-	public Particle(){
-		
-	}
-	
-	public void setActive (ParticleTexture texture, Vector3f position, Vector3f velocity, 
-			float gravityEffect, float lifeLength, float rotation, float scale) {
-		alive = true;
+	public Particle(ParticleTexture texture, Vector3f position, Vector3f velocity, float gravityEffect, float lifeLength, float rotation,
+			float scale) {
 		this.texture = texture; 
 		this.position = position;
 		this.velocity = velocity;
@@ -82,9 +73,9 @@ public class Particle {
 	
 	protected boolean update(Camera camera){
 		velocity.y += Player.GRAVITY * gravityEffect * DisplayManager.getFrameTimeSeconds(); 
-		reusableChange.set(velocity);
-		reusableChange.scale(DisplayManager.getFrameTimeSeconds());
-		Vector3f.add(reusableChange, position, position);
+		Vector3f change = new Vector3f(velocity); 
+		change.scale(DisplayManager.getFrameTimeSeconds()); 
+		Vector3f.add(change, position, position);
 		distance = Vector3f.sub(camera.getPosition(), position, null).lengthSquared(); 
 		updateTextureCoordInfo(); 
 		elapsedTime += DisplayManager.getFrameTimeSeconds();

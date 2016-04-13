@@ -36,9 +36,7 @@ public class ParticleMaster {
 					}
 				}
 			}
-			if(!entry.getKey().isAdditive()){
-				InsertionSort.sortHighToLow(list);
-			}
+			InsertionSort.sortHighToLow(list); 
 		}
 		
 		

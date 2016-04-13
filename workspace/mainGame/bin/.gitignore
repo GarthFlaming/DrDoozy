@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /fontRendering/
 /normalMappingRenderer/
 /particles/
@@ -10,3 +11,19 @@
 /guis/
 /skybox/
 /objConverter/
+=======
+/engineTester/
+/entities/
+/models/
+/normalMappingObjConverter/
+/normalMappingRenderer/
+/objConverter/
+/renderEngine/
+/shaders/
+/terrains/
+/textures/
+/water/
+/fontMeshCreator/
+/fontRendering/
+/particles/
+>>>>>>> parent of 77ccc88... tutorial 39 and down completed

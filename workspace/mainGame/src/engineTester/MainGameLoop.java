@@ -53,12 +53,7 @@ public class MainGameLoop {
 		DisplayManager.createDisplay();
 		Loader loader = new Loader();
 		TextMaster.init(loader); 
-		
-		TexturedModel playerModel = new TexturedModel(OBJLoader.loadObjModel("person", loader), new ModelTexture(loader.loadTexture("playerTexture")));
-		Player player = new Player(playerModel, new Vector3f(300, 5, -400), 0, 100, 0, 0.6f);
-		Camera camera = new Camera(player);
-		
-		MasterRenderer renderer = new MasterRenderer(loader, camera); 
+		MasterRenderer renderer = new MasterRenderer(loader); 
 		ParticleMaster.init(loader, renderer.getProjectionMatrix());
 		
 		FontType font = new FontType(loader.loadTexture("candara"), new File ("res/candara.fnt"));
@@ -170,18 +165,17 @@ public class MainGameLoop {
 
 		//MasterRenderer renderer = new MasterRenderer(loader);
 
-		
-		
+		RawModel bunnyModel = OBJLoader.loadObjModel("person", loader);
+		TexturedModel stanfordBunny = new TexturedModel(bunnyModel, new ModelTexture(
+				loader.loadTexture("playerTexture")));
+
+		Player player = new Player(stanfordBunny, new Vector3f(75, 5, -75), 0, 100, 0, 0.6f);
 		entities.add(player);
+		Camera camera = new Camera(player);
+		List<GuiTexture> guiTextures = new ArrayList<GuiTexture>();
+		GuiRenderer guiRenderer = new GuiRenderer(loader);
 		MousePicker picker = new MousePicker(camera, renderer.getProjectionMatrix(), terrain);
 	
-		List<GuiTexture> guiTextures = new ArrayList<GuiTexture>();
-		
-		GuiTexture shadowMap = new GuiTexture(renderer.getShadowMaptexture(), new Vector2f(0.5f, 0.5f), new Vector2f(0.5f, 0.5f));
-		guiTextures.add(shadowMap);
-		
-		GuiRenderer guiRenderer = new GuiRenderer(loader);
-		
 		//**********Water Renderer Set-up************************
 		
 		WaterFrameBuffers buffers = new WaterFrameBuffers();
@@ -211,7 +205,6 @@ public class MainGameLoop {
 			
 			ParticleMaster.update(camera); 
 			
-			renderer.renderShadowMap(entities, sun);
 			
 			entity.increaseRotation(0, 1, 0);
 			entity2.increaseRotation(0, 1, 0);
