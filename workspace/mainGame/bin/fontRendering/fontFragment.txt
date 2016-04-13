@@ -17,6 +17,11 @@ const vec2 offset = vec2(0.0, 0.0);
 
 const vec3 outlineColour = vec3(0.7, 0.7, 1.0); 
 
+//float smoothlyStep(float edge0, float edge1, float x){
+//	float t = clamp((x- edge0) / (edge 1 - edge 0), 0.0 , 1.0);
+//	return t * t * (3.0 - 2.0 * t);
+//}
+
 void main(void){
 
 	float distance = 1.0 - texture(fontAtlas, pass_textureCoords).a; 
@@ -24,7 +29,8 @@ void main(void){
 	
 	float distance2 = 1.0 - texture(fontAtlas, pass_textureCoords + offset).a; 
 	float outlineAlpha = 1.0 - smoothstep(borderWidth, borderWidth + borderEdge, distance2); 
-	
+	//if fontshader is providing errors replace smoothstep with smoothlyStep
+	//by errors I mean when compiled into a "fat jar file" video 42 explains
 	float overallAlpha = alpha + (1.0 - alpha) * outlineAlpha; 
 	vec3 overallColour = mix(outlineColour, colour, alpha / overallAlpha); 
 	
