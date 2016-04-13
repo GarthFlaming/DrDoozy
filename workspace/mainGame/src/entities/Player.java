@@ -77,44 +77,44 @@ public class Player extends Entity {
 //		//incert animation for specialatk
 //	}
 //=======
-//	private void jump() {
-//		if (!isInAir) {
-//			this.upwardsSpeed = JUMP_POWER;
-//			isInAir = true;
-//		}
-//	}
+	private void jump() {
+		if (!isInAir) {
+			this.upwardsSpeed = JUMP_POWER;
+			isInAir = true;
+		}
+	}
 //>>>>>>> origin/master
 //
-//	private void checkInputs() {
-//		if (Keyboard.isKeyDown(Keyboard.KEY_W)) {
-//			this.currentSpeed = RUN_SPEED;
-//		} else if (Keyboard.isKeyDown(Keyboard.KEY_S)) {
-//			this.currentSpeed = -RUN_SPEED;
+	private void checkInputs() {
+		if (Keyboard.isKeyDown(Keyboard.KEY_W)) {
+			this.currentSpeed = RUN_SPEED;
+		} else if (Keyboard.isKeyDown(Keyboard.KEY_S)) {
+			this.currentSpeed = -RUN_SPEED;
 //<<<<<<< HEAD
-//		}else if(Keyboard.isKeyDown(Keyboard.KEY_A)){
-//			this.currentSpeed = RUN_SPEED;
-//		}
-//		else if(Keyboard.isKeyDown(Keyboad.KEY_D)){
-//			this.currentSpeed = RUN_SPEED;
-//		}
-//		else{
+		}else if(Keyboard.isKeyDown(Keyboard.KEY_A)){
+			this.currentSpeed = RUN_SPEED;
+		}
+		else if(Keyboard.isKeyDown(Keyboard.KEY_D)){
+			this.currentSpeed = RUN_SPEED;
+		}
+		else{
 //=======
-//		} else {
+	//	} else {
 //>>>>>>> origin/master
-//			this.currentSpeed = 0;
-//		}
+			this.currentSpeed = 0;
+		}
 //
-//		if (Keyboard.isKeyDown(Keyboard.KEY_D)) {
-//			this.currentTurnSpeed = -TURN_SPEED;
-//		} else if (Keyboard.isKeyDown(Keyboard.KEY_A)) {
-//			this.currentTurnSpeed = TURN_SPEED;
-//		} else {
-//			this.currentTurnSpeed = 0;
-//		}
-//
-//		if (Keyboard.isKeyDown(Keyboard.KEY_SPACE)) {
-//			jump();
-//		}
+		if (Keyboard.isKeyDown(Keyboard.KEY_D)) {
+			this.currentTurnSpeed = -TURN_SPEED;
+		} else if (Keyboard.isKeyDown(Keyboard.KEY_A)) {
+			this.currentTurnSpeed = TURN_SPEED;
+		} else {
+			this.currentTurnSpeed = 0;
+		}
+
+		if (Keyboard.isKeyDown(Keyboard.KEY_SPACE)) {
+			jump();
+		}
 //<<<<<<< HEAD
 //		if(Keyboard.isKeyDown(Keyboard.KEY_Z)){
 //			aim();
@@ -156,5 +156,5 @@ public class Player extends Entity {
 //=======
 //>>>>>>> origin/master
 //	}
-
+	}
 }
