@@ -48,6 +48,9 @@ import guis.GuiTexture;
 
 public class MainGameLoop {
 
+	//for text section
+	//FontType font = new FontType(loader.loadTexture("candara"), "candara");
+	
 	public static void main(String[] args) {
 
 		DisplayManager.createDisplay();

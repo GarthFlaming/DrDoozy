@@ -10,7 +10,7 @@ public class TextMeshCreator {
 	protected static final int SPACE_ASCII = 32;
 
 	private MetaFile metaData;
-
+							//String
 	protected TextMeshCreator(File metaFile) {
 		metaData = new MetaFile(metaFile);
 	}
