@@ -127,30 +127,30 @@ public class MainGameLoop {
 		
 		//************ENTITIES*******************
 		
-		Entity entity = new Entity(barrelModel, new Vector3f(75, 10, -75), 0, 0, 0, 1f);
-		Entity entity2 = new Entity(boulderModel, new Vector3f(85, 10, -75), 0, 0, 0, 1f);
-		Entity entity3 = new Entity(crateModel, new Vector3f(65, 10, -75), 0, 0, 0, 0.04f);
-		normalMapEntities.add(entity);
-		normalMapEntities.add(entity2);
-		normalMapEntities.add(entity3);
+		//Entity entity = new Entity(barrelModel, new Vector3f(75, 10, -75), 0, 0, 0, 1f);
+		//Entity entity2 = new Entity(boulderModel, new Vector3f(85, 10, -75), 0, 0, 0, 1f);
+		//Entity entity3 = new Entity(crateModel, new Vector3f(65, 10, -75), 0, 0, 0, 0.04f);
+		//normalMapEntities.add(entity);
+		//normalMapEntities.add(entity2);
+		//normalMapEntities.add(entity3);
 		
 		Random random = new Random(5666778);
-		for (int i = 0; i < 60; i++) {
+		for (int i = 0; i < 150; i++) {
 			if (i % 3 == 0) {
-				float x = random.nextFloat() * 150;
-				float z = random.nextFloat() * -150;
+				float x = random.nextFloat() * 800;
+				float z = random.nextFloat() * -800;
 				if ((x > 50 && x < 100) || (z < -50 && z > -100)) {
 				} else {
 					float y = terrain.getHeightOfTerrain(x, z);
 
-					entities.add(new Entity(fern, 3, new Vector3f(x, y, z), 0,
-							random.nextFloat() * 360, 0, 0.9f));
+					normalMapEntities.add(new Entity(boulderModel, new Vector3f(x, y, z), random.nextFloat()+ 0.5f,
+							random.nextFloat() * 180, random.nextFloat() + 1f, 0.9f));
 				}
 			}
 			if (i % 2 == 0) {
 
-				float x = random.nextFloat() * 150;
-				float z = random.nextFloat() * -150;
+				float x = random.nextFloat() * 800;
+				float z = random.nextFloat() * -800;
 				if ((x > 50 && x < 100) || (z < -50 && z > -100)) {
 
 				} else {
@@ -178,7 +178,7 @@ public class MainGameLoop {
 		List<GuiTexture> guiTextures = new ArrayList<GuiTexture>();
 		
 		GuiTexture shadowMap = new GuiTexture(renderer.getShadowMaptexture(), new Vector2f(0.5f, 0.5f), new Vector2f(0.5f, 0.5f));
-		guiTextures.add(shadowMap);
+		//guiTextures.add(shadowMap);
 		
 		GuiRenderer guiRenderer = new GuiRenderer(loader);
 		
@@ -188,12 +188,17 @@ public class MainGameLoop {
 		WaterShader waterShader = new WaterShader();
 		WaterRenderer waterRenderer = new WaterRenderer(loader, waterShader, renderer.getProjectionMatrix(), buffers);
 		List<WaterTile> waters = new ArrayList<WaterTile>();
-		WaterTile water = new WaterTile(75, -75, 0);
-		waters.add(water);
+		for(int i = 1; i < 20; i++){
+			for(int j = 1; j < 20; j++){
+				waters.add(new WaterTile(i*160, -j * 160, -1));
+			}
+		}
+		
+		
 		
 		ParticleTexture particleTexture = new ParticleTexture(loader.loadTexture("cosmic"), 4); 
 		
-		ParticleSystem system = new ParticleSystem(particleTexture, 40, 25, 0.3f, 4, 0.8f);
+		ParticleSystem system = new ParticleSystem(particleTexture, 35, 25, 0.3f, 4, 0.8f);
 		system.randomizeRotation();
 		system.setDirection(new Vector3f(0, 1, 0), 0.1f);
 		system.setLifeError(0.25f);
@@ -213,23 +218,23 @@ public class MainGameLoop {
 			
 			renderer.renderShadowMap(entities, sun);
 			
-			entity.increaseRotation(0, 1, 0);
-			entity2.increaseRotation(0, 1, 0);
-			entity3.increaseRotation(0, 1, 0);
+			//entity.increaseRotation(0, 1, 0);
+			//entity2.increaseRotation(0, 1, 0);
+			//entity3.increaseRotation(0, 0, 1);
 			GL11.glEnable(GL30.GL_CLIP_DISTANCE0);
 			
 			//render reflection teture
 			buffers.bindReflectionFrameBuffer();
-			float distance = 2 * (camera.getPosition().y - water.getHeight());
+			float distance = 2 * (camera.getPosition().y - waters.get(0).getHeight());
 			camera.getPosition().y -= distance;
 			camera.invertPitch();
-			renderer.renderScene(entities, normalMapEntities, terrains, lights, camera, new Vector4f(0, 1, 0, -water.getHeight()+1));
+			renderer.renderScene(entities, normalMapEntities, terrains, lights, camera, new Vector4f(0, 100, 0, -waters.get(0).getHeight()+1));
 			camera.getPosition().y += distance;
 			camera.invertPitch();
 			
 			//render refraction texture
 			buffers.bindRefractionFrameBuffer();
-			renderer.renderScene(entities, normalMapEntities, terrains, lights, camera, new Vector4f(0, -1, 0, water.getHeight()));
+			renderer.renderScene(entities, normalMapEntities, terrains, lights, camera, new Vector4f(0, -1, 0, waters.get(0).getHeight()));
 			
 			//render to screen
 			GL11.glDisable(GL30.GL_CLIP_DISTANCE0);
