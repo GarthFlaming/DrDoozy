@@ -52,7 +52,7 @@ public class MainGameLoop {
 
 		DisplayManager.createDisplay();
 		Loader loader = new Loader();
-		TextMaster.init(loader); 
+		TextMaster.init(loader);
 		
 		TexturedModel playerModel = new TexturedModel(OBJLoader.loadObjModel("person", loader), new ModelTexture(loader.loadTexture("playerTexture")));
 		Player player = new Player(playerModel, new Vector3f(300, 5, -400), 0, 100, 0, 0.6f);
