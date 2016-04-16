@@ -144,7 +144,7 @@ public class MainGameLoop {
 					float y = terrain.getHeightOfTerrain(x, z);
 
 					normalMapEntities.add(new Entity(boulderModel, new Vector3f(x, y, z), random.nextFloat()+ 0.5f,
-							random.nextFloat() * 180, random.nextFloat() + 1f, 0.9f));
+							random.nextFloat() * 180, random.nextFloat() - 0.5f, 0.9f));
 				}
 			}
 			if (i % 2 == 0) {
@@ -188,9 +188,9 @@ public class MainGameLoop {
 		WaterShader waterShader = new WaterShader();
 		WaterRenderer waterRenderer = new WaterRenderer(loader, waterShader, renderer.getProjectionMatrix(), buffers);
 		List<WaterTile> waters = new ArrayList<WaterTile>();
-		for(int i = 1; i < 20; i++){
-			for(int j = 1; j < 20; j++){
-				waters.add(new WaterTile(i*160, -j * 160, -1));
+		for(int i = 0; i < 12; i++){
+			for(int j = 0; j < 12; j++){
+				waters.add(new WaterTile(i*120, -j * 120, -2));
 			}
 		}
 		
