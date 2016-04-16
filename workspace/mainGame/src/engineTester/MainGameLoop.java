@@ -223,7 +223,7 @@ public class MainGameLoop {
 			//entity3.increaseRotation(0, 0, 1);
 			GL11.glEnable(GL30.GL_CLIP_DISTANCE0);
 			
-			//render reflection teture
+			//render reflection texture
 			buffers.bindReflectionFrameBuffer();
 			float distance = 2 * (camera.getPosition().y - waters.get(0).getHeight());
 			camera.getPosition().y -= distance;
