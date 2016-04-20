@@ -201,6 +201,7 @@ public class MainGameLoop {
 		
 		
 		ParticleTexture particleTexture = new ParticleTexture(loader.loadTexture("cosmic"), 4); 
+		ParticleTexture particleTexture2 = new ParticleTexture(loader.loadTexture("particleAtlas"), 4); 
 		
 		ParticleSystem system = new ParticleSystem(particleTexture, 35, 25, 0.3f, 4, 0.8f);
 		system.randomizeRotation();
@@ -208,6 +209,13 @@ public class MainGameLoop {
 		system.setLifeError(0.25f);
 		system.setSpeedError(0.4f);
 		system.setScaleError(0.6f); 
+		
+		ParticleSystem system2 = new ParticleSystem(particleTexture2, 35, 25, 0.3f, 4, 0.8f);
+		system2.randomizeRotation();
+		system2.setDirection(new Vector3f(0, 1, 0), 0.1f);
+		system2.setLifeError(0.25f);
+		system2.setSpeedError(0.4f);
+		system2.setScaleError(0.6f); 
 		
 		//****************Game Loop Below*********************
 
@@ -218,6 +226,7 @@ public class MainGameLoop {
 			picker.update();
 			
 			system.generateParticles(player.getPosition());
+			system2.generateParticles(player2.getPosition());
 			
 			ParticleMaster.update(camera); 
 			
