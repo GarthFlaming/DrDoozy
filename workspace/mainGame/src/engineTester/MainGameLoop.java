@@ -40,6 +40,7 @@ import entities.Camera;
 import entities.Entity;
 import entities.Light;
 import entities.Player;
+import entities.Player2;
 import fontMeshCreator.FontType;
 import fontMeshCreator.GUIText;
 import fontRendering.TextMaster;
@@ -55,7 +56,9 @@ public class MainGameLoop {
 		TextMaster.init(loader);
 		
 		TexturedModel playerModel = new TexturedModel(OBJLoader.loadObjModel("person", loader), new ModelTexture(loader.loadTexture("playerTexture")));
+		TexturedModel playerModel2 = new TexturedModel(OBJLoader.loadObjModel("person", loader), new ModelTexture(loader.loadTexture("playerTexture2")));
 		Player player = new Player(playerModel, new Vector3f(300, 5, -400), 0, 100, 0, 0.6f);
+		Player2 player2 = new Player2(playerModel2, new Vector3f(310, 5, -400), 0, 100, 0, 0.6f);
 		Camera camera = new Camera(player);
 		
 		MasterRenderer renderer = new MasterRenderer(loader, camera); 
@@ -173,6 +176,7 @@ public class MainGameLoop {
 		
 		
 		entities.add(player);
+		entities.add(player2);
 		MousePicker picker = new MousePicker(camera, renderer.getProjectionMatrix(), terrain);
 	
 		List<GuiTexture> guiTextures = new ArrayList<GuiTexture>();
@@ -209,6 +213,7 @@ public class MainGameLoop {
 
 		while (!Display.isCloseRequested()) {
 			player.move(terrain);
+			player2.move(terrain);
 			camera.move();
 			picker.update();
 			
