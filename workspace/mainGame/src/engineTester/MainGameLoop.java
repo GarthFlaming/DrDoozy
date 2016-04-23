@@ -199,7 +199,7 @@ public class MainGameLoop {
 		}
 		
 		
-		
+		//**particle textures**
 		ParticleTexture particleTexture = new ParticleTexture(loader.loadTexture("cosmic"), 4); 
 		ParticleTexture particleTexture2 = new ParticleTexture(loader.loadTexture("particleAtlas"), 4); 
 		ParticleTexture particleTexture3 = new ParticleTexture(loader.loadTexture("particleStar"), 1); 
