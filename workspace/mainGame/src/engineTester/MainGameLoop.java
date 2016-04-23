@@ -202,20 +202,32 @@ public class MainGameLoop {
 		
 		ParticleTexture particleTexture = new ParticleTexture(loader.loadTexture("cosmic"), 4); 
 		ParticleTexture particleTexture2 = new ParticleTexture(loader.loadTexture("particleAtlas"), 4); 
+		ParticleTexture particleTexture3 = new ParticleTexture(loader.loadTexture("particleStar"), 1); 
 		
-		ParticleSystem system = new ParticleSystem(particleTexture, 35, 25, 0.3f, 4, 0.8f);
+		
+		//Player 1
+		ParticleSystem system = new ParticleSystem(particleTexture, 35, 25, 0.3f, 3, 0.8f);
 		system.randomizeRotation();
 		system.setDirection(new Vector3f(0, 1, 0), 0.1f);
-		system.setLifeError(0.25f);
+		system.setLifeError(0.2f);
 		system.setSpeedError(0.4f);
 		system.setScaleError(0.6f); 
 		
-		ParticleSystem system2 = new ParticleSystem(particleTexture2, 35, 25, 0.3f, 4, 0.8f);
+		//Player 2
+		ParticleSystem system2 = new ParticleSystem(particleTexture2, 35, 25, 0.3f, 3, 0.8f);
 		system2.randomizeRotation();
 		system2.setDirection(new Vector3f(0, 1, 0), 0.1f);
-		system2.setLifeError(0.25f);
+		system2.setLifeError(0.2f);
 		system2.setSpeedError(0.4f);
 		system2.setScaleError(0.6f); 
+		
+		//Mouse
+		ParticleSystem system3 = new ParticleSystem(particleTexture3, 35, 25, 0.3f, 4, 0.8f);
+		system3.randomizeRotation();
+		system3.setDirection(new Vector3f(0, 1, 0), 0.1f);
+		system3.setLifeError(0.25f);
+		system3.setSpeedError(0.4f);
+		system3.setScaleError(0.6f); 
 		
 		//****************Game Loop Below*********************
 
@@ -227,6 +239,14 @@ public class MainGameLoop {
 			
 			system.generateParticles(player.getPosition());
 			system2.generateParticles(player2.getPosition());
+			
+			//Mouse Picker particle system. 
+			Vector3f terrainPoint = picker.getCurrentTerrainPoint();
+			if(terrainPoint!=null){
+				if(Keyboard.isKeyDown(Keyboard.KEY_Y)){
+					system3.generateParticles(terrainPoint);
+				}
+			}
 			
 			ParticleMaster.update(camera); 
 			
